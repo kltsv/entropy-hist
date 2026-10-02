@@ -1,0 +1,7 @@
+{
+  "before": "# Notes\n\nRemember the milk.\nCall the bank on Monday.\n",
+  "after": "# Notes\n\nRemember the milk and eggs.\nCall the bank on Tuesday.\n",
+  "patch": "@@ -19,16 +19,25 @@\n the milk\n+ and eggs\n .%0ACall t\n@@ -51,11 +51,12 @@\n  on \n-Mon\n+Tues\n day.\n",
+  "beforeSha": "3cf43242389a8323099d45f757548f3fa9b99e39b183f77eaa5ee79aa963a743",
+  "afterSha": "9137ae8df6d8e3169e7bd66bf6bc6ff0fbe3b562488766e7cb3505ecff8a8b96"
+}

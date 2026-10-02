@@ -1,0 +1,9 @@
+{
+  "id": "entropy-hist",
+  "name": "Entropy History",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Browse, record, compare, restore and reconcile your vault's verified per-file history. Works independently of sync.",
+  "author": "entropy",
+  "isDesktopOnly": true
+}

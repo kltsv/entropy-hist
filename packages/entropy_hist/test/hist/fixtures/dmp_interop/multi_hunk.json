@@ -1,0 +1,7 @@
+{
+  "before": "# Project plan\n\n## Goals\n- Ship the sync daemon\n- Keep history append-only\n- Document the wire format\n\n## Timeline\nWeek 1: replication core\nWeek 2: encryption layer\nWeek 3: history module\nWeek 4: integration and polish\n\n## Risks\nClock skew between devices could reorder filenames.\nFuzzy patching must never show silent garbage.\n\n## Notes\nThe vault is the source of truth.\nHistory files ride the same sync as everything else.\n",
+  "after": "# Project plan\n\n## Goals\n- Ship the sync daemon and the Obsidian plugin\n- Keep history append-only\n- Document the wire format\n\n## Timeline\nWeek 1: replication core\nWeek 2: encryption layer\nWeek 3: history module and interop fixtures\nWeek 4: integration and polish\n\n## Risks\nClock skew between devices could reorder filenames.\nFuzzy patching must never show silent garbage.\nCross-port patch text must stay byte-identical.\n\n## Notes\nThe vault is the source of truth.\nHistory files ride the same sync as everything else.\n",
+  "patch": "@@ -40,17 +40,41 @@\n c daemon\n+ and the Obsidian plugin\n %0A\n-\n - Keep h\n@@ -204,16 +204,37 @@\n y module\n+ and interop fixtures\n %0AWeek 4:\n@@ -319,16 +319,16 @@\n enames.%0A\n-\n Fuzzy pa\n@@ -364,16 +364,64 @@\n  garbage\n+.%0ACross-port patch text must stay byte-identical\n .%0A%0A## No\n",
+  "beforeSha": "4da85aea05ec09e449061801339b93e5e71134f86ecbfbf017a273f9783b26bf",
+  "afterSha": "dab565343ee343544f9e8bfe510dbbf7b614306eeb742a36bdfebcbf82d4746b"
+}
