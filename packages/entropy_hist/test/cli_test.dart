@@ -418,7 +418,7 @@ void main() {
 
       final start = await h.run(['merge', 'plan.md', sha(d).substring(0, 8)]);
       expect(start.code, 0, reason: start.stderr);
-      final draftPath = p.join(h.root, '.hist-state', 'merge', 'plan.md.draft');
+      final draftPath = p.join(p.canonicalize(h.root), '.hist-state', 'merge', 'plan.md.draft');
       expect(start.stdout, contains(draftPath));
       expect(start.stdout, contains('1 conflict region'));
       expect(h.mirrorSnapshot(), before, reason: 'nothing written to history');
