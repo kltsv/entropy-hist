@@ -80,7 +80,7 @@ def spec_roots(root: Path, seen=None) -> list[Path]:
     config = root / "spec_sources_overrides.json"
     if not config.exists():
         config = root / "spec_sources.json"
-    sources = json.loads(config.read_text())["sources"] if config.exists() else []
+    sources = json.loads(config.read_text(encoding="utf-8"))["sources"] if config.exists() else []
     if not isinstance(sources, list) or any(not isinstance(s, str) for s in sources):
         raise ValueError(f"{config}: sources must be a list of paths")
     result = [root]
@@ -95,7 +95,7 @@ def load_catalog(roots: list[Path], field: str, glob: str) -> dict[str, Path]:
         for path in sorted((root / "app").rglob(glob)):
             if path.name in RESERVED_MD_NAMES:
                 continue
-            name = extract_frontmatter(path.read_text()).get(field)
+            name = extract_frontmatter(path.read_text(encoding="utf-8")).get(field)
             if name:
                 if name in result and sha256_file(path) != sha256_file(result[name]):
                     raise ValueError(f"Conflicting spec {name}: {result[name]} and {path}")
@@ -140,7 +140,7 @@ def main() -> None:
         if tested not in spec_names:
             errors.append(f"{rel}: tests unknown spec `{tested}` (known: {known_specs})")
             continue
-        digest = extract_frontmatter(path.read_text()).get("spec-digest")
+        digest = extract_frontmatter(path.read_text(encoding="utf-8")).get("spec-digest")
         if digest and digest != sha256_file(spec_names[tested]):
             errors.append(
                 f"{rel}: stale — spec-digest does not match `app/{tested}.md` "
@@ -149,7 +149,7 @@ def main() -> None:
 
     for p in spec_md_files:
         rel = p.relative_to(REPO_ROOT)
-        fm = extract_frontmatter(p.read_text())
+        fm = extract_frontmatter(p.read_text(encoding="utf-8"))
         impl = fm.get("implements")
         impl_tests = fm.get("implements-tests")
 
