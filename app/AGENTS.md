@@ -1,8 +1,8 @@
 # app
 
-Source of truth for Entropy — the application's behaviour, decomposed by module, described in plain English. Framework-agnostic. Each file here is a **module spec**.
+Source of truth for this product's behavior, decomposed by module, described in plain English. Framework-agnostic. Each file here is a **module spec**.
 
-Implementation targets compile from these specs (currently only `flutter/`). If we ever add another target, the specs do not change.
+Dart packages and the Obsidian TypeScript plugin implement these specs. If we ever add another target, the specs do not change.
 
 ## Format
 
