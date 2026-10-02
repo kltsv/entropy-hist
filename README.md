@@ -53,3 +53,6 @@ the bridge and CLI binaries, and `SHA256SUMS`. Never replace binaries under an
 existing tag: publish a new version so embedded checksums stay authoritative.
 
 MIT licensed. Dependency licenses remain their respective owners'.
+
+Release immutability is enabled on GitHub. CI uploads all assets to a draft
+then publishes; rerunning a tag never replaces an existing release.
